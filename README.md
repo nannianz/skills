@@ -1,4 +1,4 @@
-# claude-code-plugin
+# Skills
 
 Claude Code 自定义 Skill 插件集合。
 

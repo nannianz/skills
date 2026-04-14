@@ -1,4 +1,4 @@
-# claude-code-plugin 发布、下载、更新指南
+# Skills 发布、下载、更新指南
 
 ## 目录结构
 
