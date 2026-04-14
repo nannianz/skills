@@ -51,12 +51,6 @@ git commit -m "feat: add my-skill"
 git push origin master
 ```
 
-> **注意：** 需要配置 git 代理才能推送（如本地代理端口为 7890）：
-> ```bash
-> git config --global http.proxy http://127.0.0.1:7890
-> git config --global https.proxy http://127.0.0.1:7890
-> ```
-
 ## 下载安装
 
 ### 方式 1：npx 一键安装（推荐）
