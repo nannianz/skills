@@ -1,0 +1,12 @@
+{
+  "name": "claude-git-quick",
+  "description": "Git 快捷操作插件 - 暂存 / 提交 / 撤销提交",
+  "plugins": [
+    {
+      "name": "ga",
+      "type": "skill",
+      "description": "Git 快捷操作 - 暂存 / 提交 / 撤销提交",
+      "path": "skills/ga"
+    }
+  ]
+}
