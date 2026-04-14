@@ -89,8 +89,6 @@ Invoke-WebRequest -Uri "https://raw.githubusercontent.com/nannianz/claude-code-p
 
 将 `skills/ga/` 目录复制到你项目的 `.claude/skills/ga/` 下。
 
-> **注意：** 安装后需要重启 Claude Code 才能生效。
-
 ## 更新
 
 ```bash
