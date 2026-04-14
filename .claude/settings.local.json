@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git push:*)",
+      "Bash(mkdir -p .claude/skills/ga)",
+      "Bash(mv ga/SKILL.md .claude/skills/ga/SKILL.md)",
+      "Bash(rmdir ga:*)",
+      "WebSearch",
+      "Bash(git add:*)",
+      "Bash(git commit:*)"
+    ]
+  }
+}
