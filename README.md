@@ -45,10 +45,8 @@ Invoke-WebRequest -Uri "https://raw.githubusercontent.com/nannianz/claude-code-p
 | 命令 | 作用 | 等效 Git |
 |------|------|----------|
 | `/ga` | 暂存所有变更 | `git add .` |
-| `/ga c 提交信息` | 提交代码 | `git commit -m "提交信息"` |
+| `/ga c 提交信息` | 暂存并提交 | `git add . && git commit -m "提交信息"` |
 | `/ga r` | 撤销上次提交（保留更改） | `git reset --soft HEAD~1` |
-| `/gc` | `/ga` 的别名 | - |
-| `/gr` | `/ga r` 的别名 | - |
 
 ## 技能列表
 

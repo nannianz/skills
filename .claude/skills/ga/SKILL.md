@@ -5,8 +5,6 @@ name: ga
 description: Git 快捷操作 - 暂存 / 提交 / 撤销提交
 # 别名列表，支持其他触发方式
 aliases:
-  - gc
-  - gr
 # 标记该技能可由用户直接调用
 user-invocable: true
 # 该技能允许使用的工具列表，这里仅需 Bash 执行 git 命令
@@ -23,7 +21,7 @@ allowed-tools:
 | 命令 | 等效操作 | 说明 |
 |------|---------|------|
 | `/ga` | `git add .` | 暂存所有变更 |
-| `/ga c xxx` | `git commit -m "xxx"` | 使用 xxx 作为提交信息 |
+| `/ga c xxx` | `git add . && git commit -m "xxx"` | 暂存并提交 |
 | `/ga r` | `git reset --soft HEAD~1` | 撤销上一次 commit（保留代码更改） |
 
 ## Execution（执行方式）
@@ -36,12 +34,13 @@ allowed-tools:
 git add .
 ```
 
-### 2. `/ga c xxx` → 提交代码
+### 2. `/ga c xxx` → 暂存并提交
 
 xxx 作为提交信息：
 
 ```bash
-# 使用用户提供的参数作为提交信息进行提交
+# 先暂存所有变更，再提交
+git add .
 git commit -m "xxx"
 ```
 
