@@ -4,12 +4,23 @@
 
 ```
 claude-code-plugin/
+├── .claude-plugin/
+│   └── marketplace.json   # Marketplace 入口配置
 ├── README.md              # 项目首页，Skills 列表
 ├── summary.md             # 本文档
 └── skills/
-    └── ga/
-        ├── SKILL.md       # Skill 定义文件
-        └── README.md      # Skill 说明文档
+    ├── ga/                # npx 安装方式
+    │   ├── SKILL.md
+    │   └── README.md
+    └── ga-mk/             # plugin marketplace 安装方式
+        ├── .claude-plugin/
+        │   └── plugin.json
+        ├── commands/
+        │   └── ga.md      # 用户可调用的 /ga 命令
+        ├── skills/
+        │   └── ga/
+        │       └── SKILL.md  # Claude 自动识别的 skill
+        └── README.md
 ```
 
 ## 发布流程
@@ -53,53 +64,65 @@ git push origin master
 
 ## 下载安装
 
-### 方式 1：npx 一键安装（推荐）
+所有方式均为**项目级安装**（仅当前项目可用）。
+
+### 方式 1：Claude Code Marketplace
 
 ```bash
-# 安装指定 Skill
-npx skills add nannianz/skills --path skills/ga
+# 1. 添加 marketplace 源（首次需要）
+/plugin marketplace add nannianz/skills
+
+# 2. 安装到当前项目
+/plugin install ga-mk --scope project
+
+# 3. 激活
+/reload-plugins
+```
+
+卸载：
+
+```bash
+/plugin uninstall ga-mk
+```
+
+### 方式 2：npx 一键安装
+
+```bash
+# 安装到当前项目
+npx skills add nannianz/skills --path skills/ga-mk
 
 # 查看仓库中有哪些 Skills
 npx skills add nannianz/skills --list
-
-# 安装到全局（所有项目可用）
-npx skills add nannianz/skills --path skills/ga -g
-
-# 指定只安装到 Claude Code
-npx skills add nannianz/skills --path skills/ga -a claude-code
 ```
 
-### 方式 2：手动安装
+### 方式 3：手动安装
 
 **Linux/Mac：**
 
 ```bash
-mkdir -p ~/.claude/skills/ga
-curl -s https://raw.githubusercontent.com/nannianz/skills/master/skills/ga/SKILL.md > ~/.claude/skills/ga/SKILL.md
+mkdir -p .claude/skills/ga-mk
+curl -s https://raw.githubusercontent.com/nannianz/skills/master/skills/ga-mk/skills/ga/SKILL.md > .claude/skills/ga-mk/SKILL.md
 ```
 
 **Windows PowerShell：**
 
 ```powershell
-mkdir "$env:USERPROFILE\.claude\skills\ga" -Force
-Invoke-WebRequest -Uri "https://raw.githubusercontent.com/nannianz/skills/master/skills/ga/SKILL.md" -OutFile "$env:USERPROFILE\.claude\skills\ga\SKILL.md"
+mkdir ".claude\skills\ga-mk" -Force
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/nannianz/skills/master/skills/ga-mk/skills/ga/SKILL.md" -OutFile ".claude\skills\ga-mk\SKILL.md"
 ```
 
-### 方式 3：复制到项目本地
+### 方式 4：复制到项目本地
 
-将 `skills/ga/` 目录复制到你项目的 `.claude/skills/ga/` 下。
+将 `skills/ga-mk/` 目录复制到你项目的 `.claude/skills/ga-mk/` 下。
 
 ## 更新
 
 ```bash
 # 更新指定 Skill
-npx skills update ga
+npx skills update ga-mk
 
 # 更新所有已安装的 Skills
 npx skills update
-
-# 只更新全局的
-npx skills update -g
 
 # 非交互式（自动检测范围）
 npx skills update -y

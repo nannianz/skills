@@ -11,6 +11,10 @@
     {
       "name": "ga",
       "source": "./skills/ga"
+    },
+    {
+      "name": "ga-mk",
+      "source": "./skills/ga-mk"
     }
   ]
 }

@@ -4,8 +4,33 @@ Git 快捷操作 - 暂存 / 提交 / 撤销提交。
 
 ## Install
 
+**方式一：npx skills**
+
 ```bash
+# 安装到当前项目
 npx skills add nannianz/skills --path skills/ga
+```
+
+**方式二：手动安装**
+
+将 `skills/ga/` 目录复制到你项目的 `.claude/skills/ga/` 下。
+
+## Uninstall
+
+**npx 安装的：**
+
+```bash
+npx skills remove ga
+```
+
+**手动删除：**
+
+```bash
+# Linux/Mac
+rm -rf .claude/skills/ga
+
+# Windows PowerShell
+Remove-Item -Recurse -Force .claude\skills\ga
 ```
 
 ## Update
