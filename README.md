@@ -35,8 +35,6 @@ npx skills remove ga
 
 ### Install
 
-**方式一：Marketplace**
-
 ```bash
 # 1. 添加 marketplace 源（首次需要）
 /plugin marketplace add nannianz/skills
@@ -48,28 +46,10 @@ npx skills remove ga
 /reload-plugins
 ```
 
-**方式二：npx（在目标项目目录下运行）**
-
-```bash
-npx skills add nannianz/skills --path skills/gamk
-```
-
-### Update
-
-```bash
-npx skills update gamk
-```
-
 ### Uninstall
 
 ```bash
 /plugin uninstall gamk
-```
-
-或：
-
-```bash
-npx skills remove gamk
 ```
 
 ## Usage
